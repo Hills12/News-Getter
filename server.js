@@ -143,72 +143,84 @@ router.route("/punch").get((req, res)=>{
 
 router.route("/vanguard").get((req, res)=>{
     
-        let url = "https://www.vanguardngr.com/news/";
-        let allPosts = [];
-        let siteInfo = {}
-    
-        request(url, (err, response, html)=>{
-            if(err){
-                console.log("error: " + err)
-            }else{
-                let $ = cheerio.load(html);
-    
-                siteInfo.siteName = "Vanguard";
-                siteInfo.siteLink = "https://www.vanguardngr.com";
-    
-                $("article").each((index, value)=>{
-    
-                    let onePost = {}
-    
-                    onePost.topic = $(value).find(".entry-title a").text();
-                    onePost.picture = $(value).find(".rtp-post-thumbnail a img").attr("data-lazy-src");
-                    onePost.date = $(value).find("p .entry-time").text();
-                    onePost.postLink = $(value).find(".entry-title a").attr("href");
-                    onePost.website = "Vanguard";
-                    onePost.siteLink = "https://www.vanguardngr.com";
-    
-                    allPosts.push(onePost);
-    
-                    if(index==9){
-                        return false;
-                    }
-                })
-                console.log(allPosts)
-                res.render("home", {
-                    "allPosts": allPosts,
-                    "siteInfo": siteInfo
-                });
-            }
-        })
-    });
-
-/* router.route("/vanguard").get((req, res)=>{
     let url = "https://www.vanguardngr.com/news/";
+    let allPosts = [];
+    let siteInfo = {}
 
-    request(url, (err, res, html)=>{
+    request(url, (err, response, html)=>{
         if(err){
             console.log("error: " + err)
         }else{
             let $ = cheerio.load(html);
-            let data = $("h2.entry-title a").text();
-            console.log(data);
+
+            siteInfo.siteName = "Vanguard";
+            siteInfo.siteLink = "https://www.vanguardngr.com";
+
+            $("article").each((index, value)=>{
+
+                let onePost = {}
+
+                onePost.topic = $(value).find(".entry-title a").text();
+                onePost.picture = $(value).find(".rtp-post-thumbnail a img").attr("data-lazy-src");
+                onePost.date = $(value).find("p .entry-time").text();
+                onePost.postLink = $(value).find(".entry-title a").attr("href");
+                onePost.website = "Vanguard";
+                onePost.siteLink = "https://www.vanguardngr.com";
+
+                allPosts.push(onePost);
+
+                if(index==9){
+                    return false;
+                }
+            })
+            res.render("home", {
+                "allPosts": allPosts,
+                "siteInfo": siteInfo
+            });
         }
     })
 });
 
 router.route("/tribune").get((req, res)=>{
+    
     let url = "http://www.tribuneonlineng.com/category/latest-news/";
+    let allPosts = [];
+    let siteInfo = {}
 
-    request(url, (err, res, html)=>{
+    request(url, (err, response, html)=>{
         if(err){
             console.log("error: " + err)
         }else{
             let $ = cheerio.load(html);
-            let data = $("article div header h3.entry-title a").text();
-            console.log(data);
+
+            siteInfo.siteName = "Tribune";
+            siteInfo.siteLink = "http://www.tribuneonlineng.com";
+
+            $("article").each((index, value)=>{
+
+                let onePost = {}
+
+                onePost.topic = $(value).find(".entry-title a").text();
+                onePost.picture = $(value).find(".mh-loop-thumb a img").attr("src");
+                onePost.date = "";
+                onePost.postLink = $(value).find(".mh-excerpt p a").attr("href");
+                onePost.website = "Tribune";
+                onePost.siteLink = "http://www.tribuneonlineng.com";
+
+                allPosts.push(onePost);
+
+                if(index==9){
+                    return false;
+                }
+            })
+            console.log(allPosts)
+            res.render("home", {
+                "allPosts": allPosts,
+                "siteInfo": siteInfo
+            });
         }
     })
-}); */
+});
 
 // app.use(subdomain("allnews", router));
 app.use("/", router);
