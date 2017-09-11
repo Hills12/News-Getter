@@ -1,0 +1,15 @@
+<div class="container-fluid space-up">
+    <div class="row fh5co-post-entry">
+        {{#each allPosts}}
+            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                <figure>
+                    <a href="{{postLink}}" target="_blank"><img src="{{picture}}" alt="{{topic}}" class="img-responsive img-sizee"></a>
+                </figure>
+                <span class="fh5co-meta"><a href="{{siteLink}}" target="_blank">{{website}}</a></span>
+                <h2 class="fh5co-article-title"><a href="{{postLink}}" target="_blank">{{topic}}</a></h2>
+                <span class="fh5co-meta fh5co-date">{{date}}</span>
+            </article>
+        {{/each}}
+        <div class="clearfix visible-xs-block"></div>
+    </div>
+</div>
