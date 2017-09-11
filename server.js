@@ -133,7 +133,6 @@ router.route("/punch").get((req, res)=>{
                     return false;
                 }
             })
-            console.log(allPosts)
             res.render("home", {
                 "allPosts": allPosts,
                 "siteInfo": siteInfo
@@ -141,6 +140,47 @@ router.route("/punch").get((req, res)=>{
         }
     })
 });
+
+router.route("/vanguard").get((req, res)=>{
+    
+        let url = "https://www.vanguardngr.com/news/";
+        let allPosts = [];
+        let siteInfo = {}
+    
+        request(url, (err, response, html)=>{
+            if(err){
+                console.log("error: " + err)
+            }else{
+                let $ = cheerio.load(html);
+    
+                siteInfo.siteName = "Vanguard";
+                siteInfo.siteLink = "https://www.vanguardngr.com";
+    
+                $("article").each((index, value)=>{
+    
+                    let onePost = {}
+    
+                    onePost.topic = $(value).find(".entry-title a").text();
+                    onePost.picture = $(value).find(".rtp-post-thumbnail a img").attr("data-lazy-src");
+                    onePost.date = $(value).find("p .entry-time").text();
+                    onePost.postLink = $(value).find(".entry-title a").attr("href");
+                    onePost.website = "Vanguard";
+                    onePost.siteLink = "https://www.vanguardngr.com";
+    
+                    allPosts.push(onePost);
+    
+                    if(index==9){
+                        return false;
+                    }
+                })
+                console.log(allPosts)
+                res.render("home", {
+                    "allPosts": allPosts,
+                    "siteInfo": siteInfo
+                });
+            }
+        })
+    });
 
 /* router.route("/vanguard").get((req, res)=>{
     let url = "https://www.vanguardngr.com/news/";
