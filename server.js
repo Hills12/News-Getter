@@ -63,71 +63,81 @@ router.route("/techpoint").get((req, res)=>{
 
 router.route("/thenation").get((req, res)=>{
     
-        let url = "http://thenationonlineng.net/category/news/";
-        let allPosts = [];
-        let siteInfo = {}
-    
-        request(url, (err, response, html)=>{
-            if(err){
-                console.log("error: " + err)
-            }else{
-                let $ = cheerio.load(html);
-    
-                siteInfo.siteName = "The Nation";
-                siteInfo.siteLink = $(".rtp-site-logo a").attr("href");
-    
-                $("article").each((index, value)=>{
-    
-                    let onePost = {}
-    
-                    onePost.topic = $(value).find(".entry-title a").text();
-                    onePost.picture = "images/thenation.png"
-                    onePost.date = $(value).find(".posted-on .entry-date").text();
-                    onePost.postLink = $(value).find(".entry-title a").attr("href");
-                    onePost.website = "The Nation";
-                    onePost.siteLink = $(".rtp-site-logo a").attr("href");
-    
-                    allPosts.push(onePost);
-    
-                    if(index==9){
-                        return false;
-                    }
-                })
-                console.log(allPosts)
-                res.render("home", {
-                    "allPosts": allPosts,
-                    "siteInfo": siteInfo
-                });
-            }
-        })
-    });
-
-/* router.route("/thenation").get((req, res)=>{
     let url = "http://thenationonlineng.net/category/news/";
+    let allPosts = [];
+    let siteInfo = {}
 
-    request(url, (err, res, html)=>{
+    request(url, (err, response, html)=>{
         if(err){
             console.log("error: " + err)
         }else{
             let $ = cheerio.load(html);
 
+            siteInfo.siteName = "The Nation";
+            siteInfo.siteLink = $(".rtp-site-logo a").attr("href");
 
-            let data = $("h2.entry-title a").text();
-            console.log(data);
+            $("article").each((index, value)=>{
+
+                let onePost = {}
+
+                onePost.topic = $(value).find(".entry-title a").text();
+                onePost.picture = "images/thenation.png"
+                onePost.date = $(value).find(".posted-on .entry-date").text();
+                onePost.postLink = $(value).find(".entry-title a").attr("href");
+                onePost.website = "The Nation";
+                onePost.siteLink = $(".rtp-site-logo a").attr("href");
+
+                allPosts.push(onePost);
+
+                if(index==9){
+                    return false;
+                }
+            })
+            res.render("home", {
+                "allPosts": allPosts,
+                "siteInfo": siteInfo
+            });
         }
     })
-}); */
+});
 
-/* router.route("/punch").get((req, res)=>{
+router.route("/punch").get((req, res)=>{
+    
     let url = "http://punchng.com/all-posts/";
+    let allPosts = [];
+    let siteInfo = {}
 
-    request(url, (err, res, html)=>{
+    request(url, (err, response, html)=>{
         if(err){
             console.log("error: " + err)
         }else{
             let $ = cheerio.load(html);
-            let data = $("div.items div h2").text();
-            console.log(data);
+
+            siteInfo.siteName = "Punch";
+            siteInfo.siteLink = "http://punchng.com";
+
+            $("div.items").each((index, value)=>{
+
+                let onePost = {}
+
+                onePost.topic = $(value).find(".filler div .seg-title").text();
+                onePost.picture = "images/punch.png";
+                onePost.date = $(value).find(".filler div .seg-time").text();
+                onePost.postLink = $(value).find(".items a").attr("href");
+                onePost.website = "Punch";
+                onePost.siteLink = "http://punchng.com";
+
+                allPosts.push(onePost);
+
+                if(index==9){
+                    return false;
+                }
+            })
+            console.log(allPosts)
+            res.render("home", {
+                "allPosts": allPosts,
+                "siteInfo": siteInfo
+            });
         }
     })
 });
