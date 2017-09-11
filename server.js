@@ -142,6 +142,7 @@ router.route("/punch").get((req, res)=>{
     })
 });
 
+/*
 router.route("/vanguard").get((req, res)=>{
     let url = "https://www.vanguardngr.com/news/";
 
