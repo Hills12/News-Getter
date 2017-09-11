@@ -121,7 +121,7 @@ router.route("/punch").get((req, res)=>{
                 let onePost = {}
 
                 onePost.topic = $(value).find(".filler div .seg-title").text();
-                onePost.picture = "images/punch.png";
+                onePost.picture = $(value).find(".filler div figure").attr("data-src");
                 onePost.date = $(value).find(".filler div .seg-time").text();
                 onePost.postLink = $(value).find(".items a").attr("href");
                 onePost.website = "Punch";
@@ -142,8 +142,7 @@ router.route("/punch").get((req, res)=>{
     })
 });
 
-/*
-router.route("/vanguard").get((req, res)=>{
+/* router.route("/vanguard").get((req, res)=>{
     let url = "https://www.vanguardngr.com/news/";
 
     request(url, (err, res, html)=>{
