@@ -2,8 +2,8 @@
 const   express = require("express"),
         request = require("request"),
         cheerio = require("cheerio"),
-        hbs = require("express-handlebars"),
-        subdomain = require("express-subdomain");
+        hbs = require("express-handlebars");
+        // subdomain = require("express-subdomain");
 
 let app = express(),
     router = express.Router();
@@ -117,6 +117,7 @@ router.route("/tribune").get((req, res)=>{
     })
 }); */
 
-app.use(subdomain("allnews", router));
+// app.use(subdomain("allnews", router));
+app.use("/", router);
 
 app.listen(app.get("port"), ()=>console.log(`Server listening on IP: 127.0.0.1 \+ PORT: ${app.get("port")}`));
