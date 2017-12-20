@@ -1,147 +1,72 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Latest News [Popular NewsPapers - {{website}}]</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Latest News from Nigerian Popular NewsPapers - {{website}}. developed by Tobi Okedeji" />
-	<meta name="keywords" content="Latest News, Nigerin Popular Newspapers, Tobi Okedeji, The Nation, Punch, Vanguard, Tribune, Techpoint, web crawler, JavaScript, Nodejs" />
-	<meta name="author" content="Tobi Okedeji, FREEHTML5.CO" />
+<html class="mobiletest-html">
+    <head>
+        <title>News from all Platforms</title>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="images/fav.ico">
-	<!-- Google Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
-	<!-- Animate -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon -->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-
-	<link rel="stylesheet" href="css/style.css">
-
-
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="a news aggregator created by Tobi Okedeji for the purpose of querying news from differnt news platforms">        
+        
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link href="/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/css/styo.css">
+    
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
 	</head>
-	<body>
-        <div id="fh5co-offcanvas">
-            <a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
-            
-            <div class="fh5co-menu">
-                <div class="fh5co-box" style="text-align: center;">
-                    <h3 class="heading">Local Papers
-                    </h3>
-                    <ul>
-                        <li><a href="thenation">The Nation</a></li>
-                        <li><a href="punch">Punch</a></li>
-                        <li><a href="vanguard">Vanguard</a></li>
-                        <li><a href="tribune">Tribune</a></li>
-                        <li><a href="techpoint">Techpoint</a></li>
-                    </ul>
+    
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container" style="height: 70px;">
+                <div class="navbar-header" style="margin-top: 10px;">
+                    <a class="navbar-brand" href="http://www.tobiokedeji.com.ng/">
+                        <img src="/img/me.jpg" class="text-center" style="width:50px; position:relative; top:-15px; border-radius: 50px 50px; margin-right : 50px;">
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                        <i class="fa fa-bars"></i>
+                        <b>Other News Platforms</b>
+                    </button>
                 </div>
-            </div>
-
-            <div class="fh5co-menu">
-                <div class="fh5co-box" style="text-align: center;">
-                    <h3 class="heading">Foreign Papers
-                    </h3>
-                    <ul>
-                        <li><a href="thenation">The Nation</a></li>
-                        <li><a href="punch">Punch</a></li>
-                        <li><a href="vanguard">Vanguard</a></li>
-                        <li><a href="tribune">Tribune</a></li>
-                        <li><a href="techpoint">Techpoint</a></li>
+                <div class="collapse navbar-collapse" style="margin-top: 5px;" id="topNavBar">
+                    <ul class="nav navbar-nav" style="margin-right: -10px;">
+                        <li class="active">
+                            <a href="thenation" style="background-color: white;"> The Nation</a>
+                        </li>
+                        <li class="">
+                            <a href="punch" style="background-color: white;"> Punch</a>
+                        </li>
+                        <li class="">
+                            <a href="vanguard" style="background-color: white;"> Vanguard</a>
+                        </li>
+                        <li class="">
+                            <a href="tribune" style="background-color: white;"> Tribune</a>
+                        </li>
+                        <li class="">
+                            <a href="techpoint" style="background-color: white;"> Techpoint</a>
+                        </li>
                     </ul>
-                </div>
-            </div>
+			    </div>
+            </div>   
+        </nav>
 
-            <div class="fh5co-menu">
-                <div class="fh5co-box" style="text-align: center;">
-                    <h3 class="heading">Tech Papers
-                    </h3>
-                    <ul>
-                        <li><a href="thenation">The Nation</a></li>
-                        <li><a href="punch">Punch</a></li>
-                        <li><a href="vanguard">Vanguard</a></li>
-                        <li><a href="tribune">Tribune</a></li>
-                        <li><a href="techpoint">Techpoint</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="fh5co-menu">
-                <div class="fh5co-box" style="text-align: center;">
-                    <h3 class="heading">Sport Papers
-                    </h3>
-                    <ul>
-                        <li><a href="thenation" target="_blank">The Nation</a></li>
-                        <li><a href="punch" target="_blank">Punch</a></li>
-                        <li><a href="vanguard" target="_blank">Vanguard</a></li>
-                        <li><a href="tribune" target="_blank">Tribune</a></li>
-                        <li><a href="techpoint" target="_blank">Techpoint</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="fh5co-bio">
-                <figure>
-                    <img src="images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
-                </figure>
-                <h3 class="heading">About Me</h3>
-                <h2>Tobi Okedeji</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                <ul class="fh5co-social">
-                    <li><a href="https://www.facebook.com/biro.garimanuel" target="_blank"><i class="icon-facebook"></i></a></li>
-                    <li><a href="https://twitter.com/dothjs" target="_blank"><i class="icon-twitter"></i></a></li>
-                    <li><a href="https://hills12.github.io/" target="_blank"><i class="icon-github"></i></a></li>
-                    <li><a href="https://medium.com/@tobiokedeji" target="_blank"><i class="icon-medium"></i></a></li>
-                </ul>
+        <div class="panel uniquee panel-primary" style="margin-top: 0px; margin-left: 7px; width: 97%;">
+            <div class="panel-body">
+                    <p>This is <strong>News from all Platforms</strong>. You are currently on <a href="{{siteInfo.siteLink}}" target="_blank">{{siteInfo.siteName}}</a>, you can please click on <strong>Other News Platforms</strong> to check on other platforms of your choice.</p>
             </div>
         </div>
-        <!-- END #fh5co-offcanvas -->
-        <header id="fh5co-header" class="static-header navbar navbar-fixed-top"> 
-            
-            <div class="container-fluid" style="position: relative; bottom: 20px;">
-
-                <div class="row">
-                    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-                    <div class="col-lg-12 col-md-12 text-center">
-                        <h1 id="fh5co-logo"><a href="{{siteInfo.siteLink}}" target="_blank">AllNews || {{siteInfo.siteName}}</a></h1>
-                    </div>
-
+        <div class="">
+            <div class="panel unique panel-default" style="margin-top: 0px; margin-left: 35px; width: 95%;">
+                <div class="panel-body">
+                    <p>Welcome to <strong>News from all Platforms</strong>.I am Tobi Okedeji (DothJs), A Computer Programmer. I am glad that you are here. This project is one of my works on Web development. It's is a news aggregator, a place where you can get news from different news platforms. You are encouraged to make judicious use of it. You are currently on <a href="{{siteInfo.siteLink}}" target="_blank">{{siteInfo.siteName}}</a>, you can please click on <strong>Other News Platforms</strong> to check on other platforms of your choice.</p>
                 </div>
-            
             </div>
+        </div>
 
-        </header>
-        <!-- END #fh5co-header -->
+        {{{body}}}
 
-            {{{body}}}
-
-        <footer id="fh5co-footer">
-            <p><small>&copy; 2017. Latest News [Popular Papers]. All Rights Reserverd. <br>  Developed by: <a href="http://tobiokedeji.com.ng/" target="_blank">Tobi Okedeji</a> || View from: <a href="http://freehtml5.co" target="_blank">FREEHTML5.co</a></small></p>
-        </footer>
-
-        <!-- jQuery -->
-        <script src="js/jquery.min.js"></script>
-        <!-- jQuery Easing -->
-        <script src="js/jquery.easing.1.3.js"></script>
-        <!-- Bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Waypoints -->
-        <script src="js/jquery.waypoints.min.js"></script>
-        <!-- Main JS -->
-        <script src="js/main.js"></script>
-	</body>
+        <div class="text-center" style="clear: both; background-color: #fff; padding: 10px; position: relative; bottom: 0px; width: 100%;">
+            This is one of the works of Tobi Okedeji (DothJs), You can make use of it Judiciously as it is free.
+        </div>
+    </body>
 </html>

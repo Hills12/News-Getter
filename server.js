@@ -3,7 +3,6 @@ const   express = require("express"),
         request = require("request"),
         cheerio = require("cheerio"),
         hbs = require("express-handlebars");
-        // subdomain = require("express-subdomain");
 
 let app = express(),
     router = express.Router();
@@ -17,6 +16,7 @@ app.engine("handlebars", hbs.create({
 }).engine);
 app.set("view engine", "handlebars");
 
+// Make it random please
 router.route("/").get((req, res)=>{
     res.redirect("/techpoint");
 });
@@ -81,7 +81,7 @@ router.route("/thenation").get((req, res)=>{
                 let onePost = {}
 
                 onePost.topic = $(value).find(".entry-title a").text();
-                onePost.picture = "images/thenation.png"
+                onePost.picture = "img/thenation.png"
                 onePost.date = $(value).find(".posted-on .entry-date").text();
                 onePost.postLink = $(value).find(".entry-title a").attr("href");
                 onePost.website = "The Nation";
